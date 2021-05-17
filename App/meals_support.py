@@ -13,6 +13,7 @@ import heapq
 import recipe
 import json
 import webbrowser
+import diets_support
 
 import os
 import meals
@@ -84,8 +85,11 @@ def dbManager2(t,i,m,mp):
 def dbManager():
     mydb = mysql.connector.connect(host="localhost", user="root", password="pA$$123", database="khelperdb")
     mycursor = mydb.cursor()
-    
-    mycursor.execute("select item from pantry where quantity > 0")
+
+    try:    
+        mycursor.execute("select item from dpantry where quantity > 0")
+    except mysql.connector.errors.ProgrammingError:
+        mycursor.execute("select item from pantry where quantity > 0")
     
     myresult = mycursor.fetchall()
     lis = []
@@ -165,6 +169,7 @@ def check2():
     sys.stdout.flush()
   
 def back():
+    diets_support.clear()
     destroy_window()
 
 

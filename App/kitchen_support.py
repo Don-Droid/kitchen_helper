@@ -10,7 +10,7 @@ import os
 import expense
 import meals
 import ypantry
-import diet
+import diets
 
 
 try:
@@ -33,8 +33,8 @@ def init(top, gui, *args, **kwargs):
     top_level = top
     root = top
 
-def diets():
-    diet.create_Toplevel1(root)
+def diet():
+    diets.create_Toplevel1(root)
     sys.stdout.flush()
       
 

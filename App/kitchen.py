@@ -101,7 +101,7 @@ class Toplevel1:
         self.Button1_1.configure(activebackground="#ececec")
         self.Button1_1.configure(activeforeground="#000000")
         self.Button1_1.configure(background="#6dd47e")
-        self.Button1_1.configure(command=kitchen_support.diets)
+        self.Button1_1.configure(command=kitchen_support.diet)
         self.Button1_1.configure(disabledforeground="#a3a3a3")
         self.Button1_1.configure(font="-family {Bahnschrift SemiCondensed} -size 12 -weight bold")
         self.Button1_1.configure(foreground="#293250")

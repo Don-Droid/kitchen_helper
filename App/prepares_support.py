@@ -139,8 +139,8 @@ def convert2(quan, unit):
 
 def updateUsed (item,qty,unit):
     date = datetime.today().strftime('%d-%m-%Y')
-    mycursor.execute("Create table IF NOT EXISTS used(id INT AUTO_INCREMENT PRIMARY KEY, item varchar(200), quantity DEC(10,5), unit varchar(10), date varchar (20))")
-    sqlform = "Insert into used(item,quantity,unit,date) values(%s,%s,%s,%s)"
+    mycursor.execute("Create table IF NOT EXISTS food_used(id INT AUTO_INCREMENT PRIMARY KEY, item varchar(200), quantity DEC(10,5), unit varchar(10), date varchar (20))")
+    sqlform = "Insert into food_used(item,quantity,unit,date) values(%s,%s,%s,%s)"
     entry = [item, qty, unit, date]
     mycursor.execute(sqlform, entry)
     mydb.commit()

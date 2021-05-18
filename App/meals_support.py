@@ -87,7 +87,7 @@ def dbManager():
     mycursor = mydb.cursor()
 
     try:    
-        mycursor.execute("select item from dpantry where quantity > 0")
+        mycursor.execute("select item from diet_pantry where quantity > 0")
     except mysql.connector.errors.ProgrammingError:
         mycursor.execute("select item from pantry where quantity > 0")
     
@@ -101,7 +101,7 @@ def dbManager():
 def checker():
     mydb = mysql.connector.connect(host="localhost", user="root", password="pA$$123", database="khelperdb")
     mycursor = mydb.cursor()
-    mycursor.execute("DROP TABLE IF EXISTS lrecipes")
+    mycursor.execute("DROP TABLE IF EXISTS local_recipes")
     mydb.commit()
     pq = []
     global pitems
@@ -135,8 +135,8 @@ def recipes():
 
     mydb = mysql.connector.connect(host="localhost", user="root", password="pA$$123", database="khelperdb")
     mycursor = mydb.cursor()       
-    mycursor.execute("Create table IF NOT EXISTS lrecipes(id INT, title varchar(200), ingredients varchar(10000), method text(10000), m_pantry varchar (1000))")
-    mycursor.execute("Insert into lrecipes select * from recipes where id < '31'")
+    mycursor.execute("Create table IF NOT EXISTS local_recipes(id INT, title varchar(200), ingredients varchar(10000), method text(10000), m_pantry varchar (1000))")
+    mycursor.execute("Insert into local_recipes select * from recipes where id < '31'")
     mydb.commit()
 
 

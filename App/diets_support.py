@@ -57,11 +57,11 @@ def init(top, gui, *args, **kwargs):
     root = top
 
 def find():
-    mycursor.execute("Create table IF NOT EXISTS dpantry(id INT AUTO_INCREMENT PRIMARY KEY, item varchar(200), quantity DEC(10,2), unit varchar(10), price DECIMAL(10,2), date varchar (20), quantity2 DEC(10,2), unit2 varchar(10))")
+    mycursor.execute("Create table IF NOT EXISTS diet_pantry(id INT, item varchar(200), quantity DEC(10,2), unit varchar(10), price DECIMAL(10,2), date varchar (20), quantity2 DEC(10,2), unit2 varchar(10))")
     nlist = getfood(select())
     for i in nlist:
         try:
-            mycursor.execute("insert into dpantry select * from pantry where item ='" + i + "'")
+            mycursor.execute("insert into diet_pantry select * from pantry where item ='" + i + "'")
         except mysql.connector.errors.ProgrammingError:
             pass
     mydb.commit()
@@ -69,7 +69,7 @@ def find():
     sys.stdout.flush()
 
 def clear():
-    mycursor.execute("drop table if exists dpantry")
+    mycursor.execute("drop table if exists diet_pantry")
     mydb.commit()
 
 def pantry():

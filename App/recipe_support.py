@@ -58,7 +58,7 @@ def dbManager():
     try:
         mycursor.execute("select * from recipes")
     except mysql.connector.errors.ProgrammingError:
-        mycursor.execute("select * from lrecipes")
+        mycursor.execute("select * from local_recipes")
         
     myresult = mycursor.fetchall()
     global lis

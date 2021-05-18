@@ -69,7 +69,7 @@ def show():
     mydb = mysql.connector.connect(host="localhost", user="root", password="pA$$123", database="khelperdb")
     mycursor = mydb.cursor()
 
-    mycursor.execute("select item, quantity, date from used")
+    mycursor.execute("select item, quantity, date from food_used")
     myresult = mycursor.fetchall()
     usage = []
     amount = []
